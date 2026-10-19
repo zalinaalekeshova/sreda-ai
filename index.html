@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080e11">
+  <meta name="description" content="sreda.ai — пространство визуальных экспериментов. Постеры и видеоклипы, созданные с искусственным интеллектом.">
+  <title>sreda.ai — AI art & motion</title>
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#work">Перейти к работам</a>
+  <div class="ambient" aria-hidden="true"></div>
+  <canvas id="scene" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="header">
+    <a class="wordmark" href="#home" aria-label="sreda.ai — на главную">sreda<span class="wordmark-dot">.</span>ai</a>
+    <nav class="nav-pill" aria-label="Основная навигация">
+      <a href="#work">WORK</a><span class="nav-line" aria-hidden="true"></span><a href="#contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="intro" aria-label="sreda.ai — искусство и искусственный интеллект">
+      <div class="intro-caption"><span class="status-dot"></span> INDEPENDENT AI ART & MOTION</div>
+      <div class="hero-copy">
+        <h1>ARTIFICIAL<br>IMAGINATION.<br>REAL FEELING.</h1>
+        <div class="hero-description"><p>SREDA.AI / VISUAL EXPERIMENTS</p><p>Среда, в которой идеи<br>обретают форму.</p><p>Искусство, движение<br>и искусственный интеллект.</p></div>
+      </div>
+      <div class="intro-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line" aria-hidden="true"></span><span>18 WORKS / 2026</span></div>
+    </section>
+
+    <section id="work" class="gallery" aria-label="Портфолио: 15 постеров и 3 видеоклипа" inert>
+      <div class="cards" id="cards"></div>
+      <aside class="gallery-info">
+        <p class="eyebrow">WHAT ARE YOU LOOKING FOR?</p>
+        <div class="filters" role="group" aria-label="Фильтр работ">
+          <button data-filter="all" aria-pressed="true">→ ALL WORKS <span>18</span></button>
+          <button data-filter="poster" aria-pressed="false">→ POSTERS <span>15</span></button>
+          <button data-filter="video" aria-pressed="false">→ MOTION <span>03</span></button>
+        </div>
+        <button class="outline-button index-button" id="open-index">VIEW INDEX <span>↗</span></button>
+      </aside>
+      <div class="gallery-counter"><span id="current-number">01</span><span class="counter-line"></span><span id="total-number">18</span></div>
+      <div class="gallery-hint">SCROLL TO NAVIGATE <span>↓</span></div>
+    </section>
+
+    <section class="portal-copy" aria-label="Пространство экспериментов" inert><span>BEYOND THE FRAME</span><p>Everything starts<br>with a possibility.</p></section>
+    <section class="lab" aria-label="О sreda.ai" inert>
+      <div class="lab-panel"><div class="lab-texture" aria-hidden="true"></div><div class="lab-title">// THE<br>SREDA <span>↗</span></div><div class="lab-symbol" aria-hidden="true">✳</div><p>Место для новых образов.<br>От первого импульса —<br>к собственной вселенной.</p></div>
+    </section>
+    <section id="contact" class="contact" aria-label="Контакты" inert>
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <span class="eyebrow">LET’S MAKE SOMETHING UNEXPECTED</span>
+          <h2>LET’S<br>CREATE<span>↗</span></h2>
+          <p>Новые миры начинаются с разговора.<br>Расскажите, что вы хотите создать.</p>
+          <div id="contact-links"></div>
+        </div>
+        <form id="project-form" class="project-form" novalidate aria-labelledby="form-title">
+          <div class="form-heading"><span class="eyebrow">SREDA.AI / NEW PROJECT</span><h3 id="form-title">Начнём с вашей идеи</h3><p>Все поля, кроме описания задачи, обязательны.</p></div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="client-name">Ваше имя</label>
+              <input id="client-name" name="name" type="text" autocomplete="name" maxlength="100" placeholder="Как к вам обращаться?" required aria-describedby="name-error">
+              <span id="name-error" class="field-error"></span>
+            </div>
+            <div class="form-field">
+              <label for="client-phone">Номер телефона</label>
+              <input id="client-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="32" placeholder="Телефон для связи" required aria-describedby="phone-error">
+              <span id="phone-error" class="field-error"></span>
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="client-representation">Вы представляете…</label>
+            <div class="form-select">
+              <select id="client-representation" name="representation" required aria-describedby="representation-error">
+                <option value="" selected disabled>Выберите вариант</option>
+                <option>Бренд или компанию</option>
+                <option>Рекламное / креативное агентство</option>
+                <option>Личный бренд / блог</option>
+                <option>Частный заказ</option>
+                <option>Другое</option>
+              </select>
+            </div>
+            <span id="representation-error" class="field-error"></span>
+          </div>
+          <div class="form-field">
+            <label for="client-task">Расскажите о вашей задаче <span class="field-optional">необязательно</span></label>
+            <textarea id="client-task" name="task" rows="4" maxlength="5000" placeholder="Что хотите создать и для какой цели?"></textarea>
+          </div>
+          <button class="project-submit" type="submit"><span>Обсудить проект</span><span aria-hidden="true">↗</span></button>
+          <p id="form-availability" class="form-availability"></p>
+          <p id="form-status" class="form-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        </form>
+      </div>
+      <div class="contact-footer"><a href="#home">BACK TO THE SURFACE ↑</a><span>© <span id="year">2026</span> SREDA.AI</span></div>
+    </section>
+    <div id="scroll-space" aria-hidden="true"></div>
+  </main>
+
+  <div class="progress-track" aria-hidden="true"><div id="progress-thumb"></div></div>
+  <div class="loading" id="loading" aria-hidden="true"><span>sreda.ai</span><div></div></div>
+  <div class="cursor-label" id="cursor-label" aria-hidden="true">VIEW ↗</div>
+
+  <dialog id="project-dialog" class="project-dialog" aria-labelledby="detail-title">
+    <div class="detail-atmosphere" aria-hidden="true"></div>
+    <div class="detail-nav"><button id="prev-project" aria-label="Предыдущая работа">←</button><span id="detail-number"></span><button id="next-project" aria-label="Следующая работа">→</button><button id="close-project" class="close-button" aria-label="Закрыть работу">CLOSE <span>×</span></button></div>
+    <div class="detail-layout">
+      <div class="detail-media" id="detail-media"></div>
+      <aside class="project-panel" aria-label="Описание работы и референсы" tabindex="0">
+        <div class="project-panel-heading">
+          <p class="eyebrow">SREDA.AI / SELECTED WORK</p>
+          <h2 id="detail-title"></h2>
+          <p id="detail-meta" class="project-meta"></p>
+        </div>
+        <section class="project-about" aria-labelledby="about-heading">
+          <h3 id="about-heading">О проекте</h3>
+          <p id="detail-description"></p>
+        </section>
+        <section class="project-references" aria-labelledby="references-heading">
+          <div class="references-heading"><h3 id="references-heading">Референсы</h3><span id="reference-count" aria-label="Количество референсов"></span></div>
+          <p class="references-subtitle">Продукт и исходные образы</p>
+          <div id="reference-grid" class="reference-grid"></div>
+          <p id="reference-empty-note" class="reference-empty-note">Исходные фотографии появятся здесь.</p>
+        </section>
+      </aside>
+    </div>
+    <div class="detail-footer"><button id="back-to-work">← BACK TO WORK</button><span class="detail-help">ESC TO CLOSE</span></div>
+  </dialog>
+
+  <dialog id="reference-dialog" class="reference-dialog" aria-labelledby="reference-view-title">
+    <div class="reference-view-header"><p id="reference-view-title">Референс</p><button id="close-reference" class="close-button" aria-label="Закрыть референс">CLOSE <span>×</span></button></div>
+    <div class="reference-view-media"><img id="reference-view-image" alt=""></div>
+    <div class="reference-view-footer"><button id="prev-reference" aria-label="Предыдущий референс">←</button><p id="reference-view-caption"></p><span id="reference-view-number"></span><button id="next-reference" aria-label="Следующий референс">→</button></div>
+  </dialog>
+
+  <dialog id="index-dialog" class="index-dialog" aria-labelledby="index-title">
+    <div class="index-header"><div><p class="eyebrow">SREDA.AI / COMPLETE COLLECTION</p><h2 id="index-title">WORK INDEX<span> / 18</span></h2></div><button id="close-index" class="close-button" aria-label="Закрыть каталог">CLOSE <span>×</span></button></div>
+    <div id="index-grid" class="index-grid"></div>
+  </dialog>
+  <noscript><div class="noscript">Для 3D-портфолио включите JavaScript. sreda.ai — 15 постеров и 3 видеоклипа.</div></noscript>
+  <script type="module" src="./src/app.js"></script>
+</body>
+</html>
