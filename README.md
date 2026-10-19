@@ -139,6 +139,10 @@ integrations/google-apps-script/ Обработчик Google Sheets + Telegram �
 
 ## Сборка и GitHub
 
+Сайт: https://zalinaalekeshova.github.io/sreda-ai/
+
+Репозиторий: https://github.com/zalinaalekeshova/sreda-ai
+
 ```sh
 npm run check
 npm run build
